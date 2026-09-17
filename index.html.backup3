@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redox Funded Squad | Next-Gen Prop Trading Firm</title>
+<meta name="description" content="Trade up to $200,000 with up to 90% profit split. $5K evaluation challenge for just $5.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: { extend: {
+    fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'], mono: ['"JetBrains Mono"', 'monospace'] },
+    colors: { brand: { 50:'#ecfdf5',400:'#34d399',500:'#10b981',600:'#059669',accent:'#6366f1',gold:'#f59e0b',dark:'#0a0d14',card:'#111726',border:'#1f293d' } }
+  }}
+}
+</script>
+<style>
+body { background-color: #080b11; color: #e2e8f0; overflow-x: hidden; }
+.gradient-glow { background: radial-gradient(circle at 50% 20%, rgba(16,185,129,0.15) 0%, rgba(99,102,241,0.08) 45%, transparent 70%); }
+.card-glass { background: rgba(17,23,38,0.75); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.07); }
+.card-glow:hover { border-color: rgba(16,185,129,0.4); box-shadow: 0 0 25px rgba(16,185,129,0.15); }
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #111726; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #1f293d; border-radius: 3px; }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<div class="bg-gradient-to-r from-emerald-900/40 via-emerald-800/30 to-emerald-900/40 border-b border-emerald-500/20">
+  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-center gap-3 text-xs sm:text-sm">
+    <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-bold">FLASH PROMO</span>
+    <span class="text-gray-300 hidden sm:inline">Start your prop career: <strong class="text-white">$5,000 Account Challenge for only $5!</strong> Instant cTrader credentials.</span>
+    <span class="text-gray-300 sm:hidden"><strong class="text-white">$5K for $5!</strong></span>
+    <a href="#challenges" class="text-emerald-400 font-semibold hover:text-emerald-300 underline">Claim Now &rarr;</a>
+  </div>
+</div>
+
+<header class="border-b border-white/5 bg-[#080b11]/80 backdrop-blur-xl sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-2">
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+        <i data-lucide="trending-up" class="w-6 h-6 text-black"></i>
+      </div>
+      <div>
+        <div class="flex items-baseline gap-1.5">
+          <span class="text-lg sm:text-xl font-extrabold text-white tracking-tight">REDOX</span>
+          <span class="text-emerald-400 font-bold text-sm sm:text-base">FUNDED SQUAD</span>
+        </div>
+        <div class="text-[10px] text-gray-500 font-mono uppercase tracking-widest">Institutional Prop Firm</div>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-400">
+      <a href="#challenges" class="hover:text-emerald-400 transition">Challenges</a>
+      <a href="#models" class="hover:text-emerald-400 transition">Models</a>
+      <a href="#rules" class="hover:text-emerald-400 transition">Rules</a>
+      <a href="#platforms" class="hover:text-emerald-400 transition">Platforms</a>
+      <a href="#payouts" class="hover:text-emerald-400 transition">Payouts</a>
+      <a href="#faq" class="hover:text-emerald-400 transition">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <button id="header-login-btn" onclick="openModal('login-modal')" class="text-sm font-semibold text-gray-300 hover:text-white px-3 py-2 rounded-lg transition">Trader Login</button>
+      <button id="header-dashboard-btn" onclick="openDashboard()" class="hidden text-sm font-semibold text-emerald-400 hover:text-emerald-300 px-3 py-2 rounded-lg transition">Dashboard</button>
+      <button id="header-logout-btn" onclick="handleLogout()" class="hidden text-sm font-semibold text-red-400 hover:text-red-300 px-3 py-2 rounded-lg transition">Logout</button>
+      <a href="#" onclick="event.preventDefault(); openSignup()" class="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-black font-bold text-sm px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-500/25 transition transform hover:-translate-y-0.5">Get Funded</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="relative gradient-glow pt-16 pb-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full card-glass text-xs font-medium text-gray-300 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Up to 90% Profit Split &bull; Bi-Weekly Fast Crypto Payouts</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
+        Trade Institutional Capital.<br>
+        <span class="bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">Keep 90% of the Profits.</span>
+      </h1>
+      <p class="text-base sm:text-lg text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Prove your edge with our transparent evaluation challenges. 12% &amp; 8% profit targets, 3 minimum trading days, zero hidden rules, and instant account provisioning on cTrader.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="#challenges" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-base transition flex items-center justify-center gap-2">
+          <i data-lucide="zap" class="w-5 h-5"></i> Explore Challenges
+        </a>
+        <button onclick="openTraderPortal()" class="w-full sm:w-auto px-8 py-4 rounded-xl card-glass hover:bg-white/10 text-white font-semibold text-base transition flex items-center justify-center gap-2">
+          <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Interactive Trader Portal
+        </button>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">$5,000,000+</div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Funded Capital</div></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">90%</div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Trader Profit Split</div></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">&lt; 8 Hours</div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Payout Processing</div></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">3 Days</div><div class="text-xs text-gray-500 mt-1 uppercase tracking-wider">Min. Trading Days</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="challenges" class="py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="text-xs font-mono uppercase tracking-[0.3em] text-emerald-400 mb-3">Evaluation Accounts</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Choose Your Account Size</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto">Transparent metrics. Pass Phase 1 (12%) and Phase 2 (8%), verify your KYC, and start trading funded institutional accounts.</p>
+      </div>
+      <div id="models" class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <button id="btn-two-phase" onclick="switchModel('two-phase')" class="px-5 py-2.5 rounded-xl font-bold text-sm bg-emerald-500 text-black transition">2-Phase Squad (12% / 8%)</button>
+        <button id="btn-one-phase" onclick="switchModel('one-phase')" class="px-5 py-2.5 rounded-xl font-medium text-sm text-gray-300 hover:text-white transition">1-Phase Express (10%)</button>
+        <button id="btn-instant" onclick="switchModel('instant')" class="px-5 py-2.5 rounded-xl font-medium text-sm text-gray-300 hover:text-white transition flex items-center gap-1.5">Instant Funded <span class="text-[10px] px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">No Eval</span></button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="plans-grid">
+        <div class="card-glass rounded-3xl border-2 border-emerald-500/60 p-6 relative card-glow transition">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-emerald-500 text-black text-xs font-extrabold uppercase tracking-wider">Special $5 Deal</div>
+          <div class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Starter Evaluation</div>
+          <div class="text-4xl font-extrabold text-white font-mono mb-1">$5,000</div>
+          <div class="flex items-baseline gap-2 mb-6"><div class="text-3xl font-extrabold text-emerald-400 font-mono">$5</div><div class="text-sm text-gray-500 line-through">$49</div><div class="text-xs text-gray-500">one-time</div></div>
+          <div class="space-y-3 text-sm mb-6 pb-6 border-b border-white/5">
+            <div class="flex justify-between"><span class="text-gray-400">Phase 1 Target</span><span class="font-bold text-white">12% ($600)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Phase 2 Target</span><span class="font-bold text-white">8% ($400)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Daily Loss</span><span class="font-bold text-white">4% ($200)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Total Loss</span><span class="font-bold text-white">8% ($400)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Min Trading Days</span><span class="font-bold text-white">3 Days</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Profit Split</span><span class="font-bold text-emerald-400">90%</span></div>
+          </div>
+          <button onclick="startCheckout('5k_2phase', 5, 5000)" class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition">Start for $5</button>
+        </div>
+
+        <div class="card-glass rounded-3xl border border-white/10 p-6 card-glow transition">
+          <div class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Pro Evaluation</div>
+          <div class="text-4xl font-extrabold text-white font-mono mb-1">$10,000</div>
+          <div class="flex items-baseline gap-2 mb-6"><div class="text-3xl font-extrabold text-emerald-400 font-mono">$65</div><div class="text-xs text-gray-500">one-time</div></div>
+          <div class="space-y-3 text-sm mb-6 pb-6 border-b border-white/5">
+            <div class="flex justify-between"><span class="text-gray-400">Phase 1 Target</span><span class="font-bold text-white">12% ($1,200)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Phase 2 Target</span><span class="font-bold text-white">8% ($800)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Daily Loss</span><span class="font-bold text-white">4% ($400)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Total Loss</span><span class="font-bold text-white">8% ($800)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Min Trading Days</span><span class="font-bold text-white">3 Days</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Profit Split</span><span class="font-bold text-emerald-400">90%</span></div>
+          </div>
+          <button onclick="startCheckout('10k_2phase', 65, 10000)" class="w-full py-3 rounded-xl card-glass hover:bg-emerald-500 hover:text-black font-extrabold text-xs uppercase tracking-wider transition">Get Account</button>
+        </div>
+
+        <div class="card-glass rounded-3xl border border-white/10 p-6 card-glow transition">
+          <div class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Master Evaluation</div>
+          <div class="text-4xl font-extrabold text-white font-mono mb-1">$25,000</div>
+          <div class="flex items-baseline gap-2 mb-6"><div class="text-3xl font-extrabold text-emerald-400 font-mono">$145</div><div class="text-xs text-gray-500">one-time</div></div>
+          <div class="space-y-3 text-sm mb-6 pb-6 border-b border-white/5">
+            <div class="flex justify-between"><span class="text-gray-400">Phase 1 Target</span><span class="font-bold text-white">12% ($3,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Phase 2 Target</span><span class="font-bold text-white">8% ($2,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Daily Loss</span><span class="font-bold text-white">4% ($1,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Total Loss</span><span class="font-bold text-white">8% ($2,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Min Trading Days</span><span class="font-bold text-white">3 Days</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Profit Split</span><span class="font-bold text-emerald-400">90%</span></div>
+          </div>
+          <button onclick="startCheckout('25k_2phase', 145, 25000)" class="w-full py-3 rounded-xl card-glass hover:bg-emerald-500 hover:text-black font-extrabold text-xs uppercase tracking-wider transition">Get Account</button>
+        </div>
+
+        <div class="card-glass rounded-3xl border-2 border-indigo-500/60 p-6 card-glow transition relative">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-indigo-600 text-white text-xs font-extrabold uppercase tracking-wider">Most Popular</div>
+          <div class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Elite Squad</div>
+          <div class="text-4xl font-extrabold text-white font-mono mb-1">$50,000</div>
+          <div class="flex items-baseline gap-2 mb-6"><div class="text-3xl font-extrabold text-emerald-400 font-mono">$245</div><div class="text-xs text-gray-500">one-time</div></div>
+          <div class="space-y-3 text-sm mb-6 pb-6 border-b border-white/5">
+            <div class="flex justify-between"><span class="text-gray-400">Phase 1 Target</span><span class="font-bold text-white">12% ($6,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Phase 2 Target</span><span class="font-bold text-white">8% ($4,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Daily Loss</span><span class="font-bold text-white">4% ($2,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Total Loss</span><span class="font-bold text-white">8% ($4,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Min Trading Days</span><span class="font-bold text-white">3 Days</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Profit Split</span><span class="font-bold text-emerald-400">90%</span></div>
+          </div>
+          <button onclick="startCheckout('50k_2phase', 245, 50000)" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-indigo-600/20 transition">Get Account</button>
+        </div>
+
+        <div class="card-glass rounded-3xl border border-white/10 p-6 card-glow transition">
+          <div class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-2">Institutional</div>
+          <div class="text-4xl font-extrabold text-white font-mono mb-1">$100,000</div>
+          <div class="flex items-baseline gap-2 mb-6"><div class="text-3xl font-extrabold text-emerald-400 font-mono">$475</div><div class="text-xs text-gray-500">one-time</div></div>
+          <div class="space-y-3 text-sm mb-6 pb-6 border-b border-white/5">
+            <div class="flex justify-between"><span class="text-gray-400">Phase 1 Target</span><span class="font-bold text-white">12% ($12,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Phase 2 Target</span><span class="font-bold text-white">8% ($8,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Daily Loss</span><span class="font-bold text-white">4% ($4,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Max Total Loss</span><span class="font-bold text-white">8% ($8,000)</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Min Trading Days</span><span class="font-bold text-white">3 Days</span></div>
+            <div class="flex justify-between"><span class="text-gray-400">Profit Split</span><span class="font-bold text-emerald-400">90%</span></div>
+          </div>
+          <button onclick="startCheckout('100k_2phase', 475, 100000)" class="w-full py-3 rounded-xl card-glass hover:bg-emerald-500 hover:text-black font-extrabold text-xs uppercase tracking-wider transition">Get Account</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="platforms" class="py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="text-xs font-mono uppercase tracking-[0.3em] text-emerald-400 mb-3">Ultra Low-Latency Infrastructure</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Direct Liquidity on cTrader &amp; MT5</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="card-glass p-6 rounded-3xl border border-emerald-500/30">
+          <div class="flex items-center justify-between mb-4"><div class="text-lg font-extrabold text-white">cTrader</div><span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">Available Now</span></div>
+          <p class="text-sm text-gray-400 leading-relaxed">Level-II depth of market, ultra-clean mobile &amp; web trading, fast one-click executions, and custom cBot indicators.</p>
+        </div>
+        <div class="card-glass p-6 rounded-3xl border border-white/10">
+          <div class="flex items-center justify-between mb-4"><div class="text-lg font-extrabold text-white">MetaTrader 5 (MT5)</div><span class="text-xs px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-bold">Coming Soon</span></div>
+          <p class="text-sm text-gray-400 leading-relaxed">Integration currently undergoing liquidity stress-testing. MT5 accounts will be unlockable directly from your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="payouts" class="py-20 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="text-xs font-mono uppercase tracking-[0.3em] text-emerald-400 mb-3">Trader Payouts</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">90% Profit Split via Instant Crypto</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><i data-lucide="badge-check" class="w-6 h-6 text-emerald-400 mb-3"></i><div class="font-bold text-white mb-1">Mandatory One-Time KYC</div><p class="text-xs text-gray-400 leading-relaxed">Government photo ID + proof of address. Automated verification under 15 minutes.</p></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><i data-lucide="coins" class="w-6 h-6 text-emerald-400 mb-3"></i><div class="font-bold text-white mb-1">Zero Withholding Fees</div><p class="text-xs text-gray-400 leading-relaxed">We absorb network gas fees on USDT withdrawals.</p></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><i data-lucide="trending-up" class="w-6 h-6 text-emerald-400 mb-3"></i><div class="font-bold text-white mb-1">Scaling Plan up to $1M</div><p class="text-xs text-gray-400 leading-relaxed">Generate 10% profit over 3 months for 25% account boosts.</p></div>
+        <div class="card-glass p-5 rounded-2xl border border-white/5"><i data-lucide="clock" class="w-6 h-6 text-emerald-400 mb-3"></i><div class="font-bold text-white mb-1">Bi-Weekly Payouts</div><p class="text-xs text-gray-400 leading-relaxed">Request on 1st &amp; 15th. Processed within 8 hours.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="py-20 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <div class="text-xs font-mono uppercase tracking-[0.3em] text-emerald-400 mb-3">Help Center</div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-3">
+        <div class="card-glass p-5 rounded-xl border border-white/5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex items-center justify-between"><div class="font-semibold text-white pr-4">What are the profit targets for the 2-Phase evaluation?</div><i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition flex-shrink-0"></i></div><div class="hidden mt-3 text-sm text-gray-400 leading-relaxed">Phase 1 requires a 12% profit target. Phase 2 requires 8%. Both mandate a minimum of 3 trading days.</div></div>
+        <div class="card-glass p-5 rounded-xl border border-white/5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex items-center justify-between"><div class="font-semibold text-white pr-4">What are the maximum drawdown limitations?</div><i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition flex-shrink-0"></i></div><div class="hidden mt-3 text-sm text-gray-400 leading-relaxed">Max daily loss is 4%, max total loss is 8% of initial balance. Breaching either fails the evaluation.</div></div>
+        <div class="card-glass p-5 rounded-xl border border-white/5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex items-center justify-between"><div class="font-semibold text-white pr-4">How do I receive my cTrader credentials after payment?</div><i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition flex-shrink-0"></i></div><div class="hidden mt-3 text-sm text-gray-400 leading-relaxed">Credentials are generated after your crypto transaction is verified. Login, password, and server IP appear in your dashboard.</div></div>
+        <div class="card-glass p-5 rounded-xl border border-white/5 cursor-pointer" onclick="toggleFaq(this)"><div class="flex items-center justify-between"><div class="font-semibold text-white pr-4">Is news trading and weekend holding allowed?</div><i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition flex-shrink-0"></i></div><div class="hidden mt-3 text-sm text-gray-400 leading-relaxed">Yes! Swing trading over weekends and news releases are allowed. HFT arbitrage is prohibited.</div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="border-t border-white/5 py-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <div class="flex items-center justify-center gap-2 mb-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center"><span class="text-black font-extrabold text-sm">R</span></div>
+      <span class="font-extrabold text-white">REDOX FUNDED SQUAD</span>
+    </div>
+    <p class="text-xs text-gray-500 max-w-3xl mx-auto leading-relaxed">&copy; 2026 Redox Funded Squad. Proprietary Evaluation &amp; Simulated Trading Firm. All accounts provided are simulated demo environments with real-world liquidity data feeds.</p>
+  </div>
+</footer>
+
+<!-- SIGNUP MODAL -->
+<div id="signup-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="card-glass max-w-md w-full p-6 sm:p-8 rounded-3xl border border-white/10 relative shadow-2xl">
+    <button onclick="closeModal('signup-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <h3 class="text-xl font-extrabold text-white mb-1">Create Account</h3>
+    <p class="text-xs text-gray-400 mb-6">Start your prop journey in 30 seconds</p>
+    <form onsubmit="handleSignup(event)" class="space-y-4">
+      <div><label class="block text-xs font-semibold text-gray-300 mb-1">Email</label><input type="email" name="email" required placeholder="name@domain.com" class="w-full bg-black/50 border border-white/10 text-sm text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none"></div>
+      <div><label class="block text-xs font-semibold text-gray-300 mb-1">Password (min 6 chars)</label><input type="password" name="password" required minlength="6" placeholder="••••••••" class="w-full bg-black/50 border border-white/10 text-sm text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none"></div>
+      <div><label class="block text-xs font-semibold text-gray-300 mb-1">Confirm Password</label><input type="password" name="confirmPassword" required minlength="6" placeholder="••••••••" class="w-full bg-black/50 border border-white/10 text-sm text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none"></div>
+      <div id="signup-msg" class="text-xs text-center hidden"></div>
+      <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-wider transition">Create Account</button>
+    </form>
+    <p class="text-xs text-gray-400 mt-4 text-center">Already have an account? <a onclick="closeModal('signup-modal'); openModal('login-modal')" class="text-emerald-400 cursor-pointer font-semibold">Login</a></p>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="login-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="card-glass max-w-md w-full p-6 sm:p-8 rounded-3xl border border-white/10 relative shadow-2xl">
+    <button onclick="closeModal('login-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <h3 class="text-xl font-extrabold text-white mb-1">Trader Portal Login</h3>
+    <p class="text-xs text-gray-400 mb-6">Enter your registered email to access your evaluations</p>
+    <form onsubmit="handleLogin(event)" class="space-y-4">
+      <div><label class="block text-xs font-semibold text-gray-300 mb-1">Trader Email</label><input type="email" name="email" required placeholder="name@domain.com" class="w-full bg-black/50 border border-white/10 text-sm text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none"></div>
+      <div><label class="block text-xs font-semibold text-gray-300 mb-1">Password</label><input type="password" name="password" required placeholder="••••••••" class="w-full bg-black/50 border border-white/10 text-sm text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none"></div>
+      <div id="login-msg" class="text-xs text-center hidden"></div>
+      <button type="submit" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-wider transition">Sign In to Dashboard</button>
+    </form>
+    <p class="text-xs text-gray-400 mt-4 text-center">No account? <a onclick="closeModal('login-modal'); openSignup()" class="text-emerald-400 cursor-pointer font-semibold">Create Account</a></p>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div id="checkout-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="card-glass max-w-lg w-full p-6 sm:p-8 rounded-3xl border border-white/10 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+    <button onclick="closeModal('checkout-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center"><i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i></div>
+      <h3 class="text-xl font-extrabold text-white">Instant Crypto Checkout</h3>
+    </div>
+    <p class="text-xs text-gray-400 mb-6">Purchasing: <span id="checkout-plan-label" class="text-emerald-400 font-semibold">$5,000 Evaluation Account</span></p>
+    <div class="bg-black/40 p-4 rounded-xl border border-white/5 mb-6 flex items-center justify-between">
+      <span class="text-sm text-gray-400">Total Amount Due:</span>
+      <span class="text-2xl font-extrabold text-emerald-400 font-mono" id="checkout-amount">5.0000 USDT</span>
+    </div>
+    <label class="block text-xs font-semibold text-gray-300 mb-2">Select Cryptocurrency:</label>
+    <div class="grid grid-cols-2 gap-2 mb-6">
+      <button type="button" onclick="selectCrypto('USDT_BEP20')" class="crypto-btn active p-3 rounded-xl border border-emerald-500 bg-emerald-500/10 text-xs font-bold text-white text-center transition">USDT (BEP20)</button>
+      <button type="button" onclick="selectCrypto('BTC')" class="crypto-btn p-3 rounded-xl border border-white/10 card-glass text-xs font-bold text-gray-300 hover:text-white text-center transition">Bitcoin (BTC)</button>
+    </div>
+    <div class="bg-black/40 p-4 rounded-xl border border-white/5 mb-6">
+      <div class="flex items-center justify-between mb-2">
+        <span class="text-xs text-gray-400">Deposit Address (<span id="crypto-network-label">BEP20 Network</span>):</span>
+        <span class="text-[10px] text-emerald-400 font-mono font-bold">VERIFY ON CHAIN</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="text" id="deposit-address-input" readonly value="0x4246e7fc5362cee0e67e21f543ccff73d8e82337" class="flex-1 bg-black border border-white/10 text-[10px] text-white px-3 py-2.5 rounded-lg font-mono">
+        <button onclick="copyWallet()" class="bg-emerald-500 text-black px-3 py-2 rounded-lg text-xs font-bold hover:bg-emerald-400 transition flex items-center gap-1"><i data-lucide="copy" class="w-3 h-3"></i> <span id="copy-btn-text">Copy</span></button>
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="block text-xs font-semibold text-gray-300 mb-2">Transaction Hash (TXID) — after sending payment:</label>
+      <input type="text" id="checkout-txid" placeholder="Paste your TXID here" class="w-full bg-black/50 border border-white/10 text-xs text-white px-4 py-3 rounded-xl focus:border-emerald-500 focus:outline-none font-mono">
+    </div>
+    <div id="checkout-msg" class="text-xs text-center mb-3 hidden"></div>
+    <button onclick="submitTxid()" class="w-full py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-emerald-500/20">I Have Sent Payment — Submit TXID</button>
+    <p class="text-[10px] text-gray-500 text-center mt-4 leading-relaxed">Send the exact amount to the address above. After you submit your TXID, our team verifies on-chain and activates your account within 30 minutes. Wrong network = lost funds.</p>
+  </div>
+</div>
+
+<!-- DASHBOARD MODAL -->
+<div id="dashboard-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="card-glass max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-white/10 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+    <button onclick="closeModal('dashboard-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <h3 class="text-xl font-extrabold text-white mb-1">My Dashboard</h3>
+    <p class="text-xs text-gray-400 mb-5">Welcome back, <span id="dash-email" class="text-emerald-400 font-semibold"></span></p>
+    <div class="bg-black/40 p-4 rounded-xl border border-white/5 mb-6">
+      <div class="grid grid-cols-2 gap-3 text-xs">
+        <div><div class="text-gray-500 mb-1">Username</div><div id="dash-username" class="text-white font-mono font-semibold">—</div></div>
+        <div><div class="text-gray-500 mb-1">Email</div><div id="dash-email2" class="text-white font-mono font-semibold truncate">—</div></div>
+        <div class="col-span-2"><div class="text-gray-500 mb-1">Payout Wallet (USDT BEP20)</div><div id="dash-wallet" class="text-emerald-400 font-mono font-semibold text-[10px] break-all">0x4246e7fc5362cee0e67e21f543ccff73d8e82337</div></div>
+      </div>
+    </div>
+    <div class="mb-6">
+      <h4 class="text-xs font-mono uppercase text-gray-500 mb-3">My Challenges</h4>
+      <div id="dash-challenges" class="space-y-2"></div>
+      <p id="dash-challenges-empty" class="text-sm text-gray-500">No active challenges yet. Purchase one to get started.</p>
+    </div>
+    <div>
+      <h4 class="text-xs font-mono uppercase text-gray-500 mb-3">Recent Orders</h4>
+      <div id="dash-orders" class="space-y-2"></div>
+      <p id="dash-orders-empty" class="text-sm text-gray-500">No orders yet.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DASHBOARD PREVIEW MODAL -->
+<div id="dashboard-preview-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+  <div class="card-glass max-w-3xl w-full p-6 sm:p-8 rounded-3xl border border-white/10 relative shadow-2xl max-h-[90vh] overflow-y-auto custom-scrollbar">
+    <button onclick="closeModal('dashboard-preview-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-white"><i data-lucide="x" class="w-6 h-6"></i></button>
+    <div class="flex items-center justify-between mb-6 flex-wrap gap-2">
+      <div><h3 class="text-xl font-extrabold text-white">Trader Dashboard — Preview</h3><p class="text-xs text-gray-400">$5,000 Starter Evaluation • Phase 1</p></div>
+      <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">Active</span>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+      <div class="bg-black/40 p-4 rounded-xl border border-white/5"><div class="text-xs text-gray-400">Equity</div><div class="text-xl font-bold text-white font-mono mt-1">$5,120</div><div class="text-[11px] text-emerald-400 mt-1 font-semibold">+2.4%</div></div>
+      <div class="bg-black/40 p-4 rounded-xl border border-white/5"><div class="text-xs text-gray-400">Phase 1 Target</div><div class="text-xl font-bold text-white font-mono mt-1">12%</div><div class="text-[11px] text-emerald-400 mt-1 font-semibold">+2.4% / 12%</div></div>
+      <div class="bg-black/40 p-4 rounded-xl border border-white/5"><div class="text-xs text-gray-400">Daily Loss</div><div class="text-xl font-bold text-emerald-400 font-mono mt-1">0.82% / 4.0%</div><div class="text-[11px] text-emerald-400 mt-1 font-semibold">&bull; Healthy</div></div>
+      <div class="bg-black/40 p-4 rounded-xl border border-white/5"><div class="text-xs text-gray-400">Trading Days</div><div class="text-xl font-bold text-white font-mono mt-1">4 / 3 Days</div><div class="text-[11px] text-emerald-400 mt-1 font-semibold">&check; Target Met</div></div>
+    </div>
+    <div class="card-glass p-5 rounded-2xl border border-white/10 mb-6">
+      <h4 class="text-xs font-mono uppercase text-gray-400 mb-3 flex items-center gap-2"><i data-lucide="key" class="w-4 h-4 text-emerald-400"></i><span>cTrader Platform Credentials</span></h4>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
+        <div class="bg-black/50 p-3 rounded-lg border border-white/5"><span class="text-gray-500 block text-[10px]">Server:</span><strong class="text-white">Redox-cTrader-Live01</strong></div>
+        <div class="bg-black/50 p-3 rounded-lg border border-white/5"><span class="text-gray-500 block text-[10px]">Account ID:</span><strong class="text-emerald-400">884920</strong></div>
+        <div class="bg-black/50 p-3 rounded-lg border border-white/5"><span class="text-gray-500 block text-[10px]">Trader Password:</span><strong class="text-white">Redox$Funded#2026</strong></div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+      <button onclick="requestSimulatedPayout()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs uppercase tracking-wider transition">Request Payout (90% Split)</button>
+      <button onclick="closeModal('dashboard-preview-modal')" class="w-full sm:w-auto px-6 py-3 rounded-xl card-glass text-gray-300 hover:text-white font-semibold text-xs transition">Close Preview</button>
+    </div>
+  </div>
+</div>
+
+<script>
+lucide.createIcons();
+
+let currentUser = null;
+let currentPlan = null;
+let currentPrice = null;
+let currentAccountSize = null;
+let currentOrderRef = null;
+
+const BTC_ADDRESS = '14Z4k7x7DFVGxUnwtydkrhXe91vJ6rpgnH';
+const BEP20_ADDRESS = '0x4246e7fc5362cee0e67e21f543ccff73d8e82337';
+
+function openModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.remove('hidden');
+  m.classList.add('flex');
+  lucide.createIcons();
+}
+function closeModal(id) {
+  const m = document.getElementById(id);
+  if (!m) return;
+  m.classList.add('hidden');
+  m.classList.remove('flex');
+}
+
+function openSignup() {
+  if (currentUser) { openDashboard(); return; }
+  openModal('signup-modal');
+}
+
+async function handleSignup(e) {
+  e.preventDefault();
+  const f = e.target;
+  const email = f.email.value.trim();
+  const password = f.password.value;
+  const confirmPassword = f.confirmPassword.value;
+  const msgEl = document.getElementById('signup-msg');
+  msgEl.className = 'text-xs text-center text-gray-400';
+  msgEl.textContent = 'Creating account...';
+  msgEl.classList.remove('hidden');
+  try {
+    const r = await fetch('/api/auth/signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email, password, confirmPassword })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Signup failed');
+    msgEl.className = 'text-xs text-center text-emerald-400 font-semibold';
+    msgEl.textContent = 'Account created! Logging you in...';
+    await refreshAuth();
+    setTimeout(() => { closeModal('signup-modal'); openDashboard(); }, 700);
+  } catch (err) {
+    msgEl.className = 'text-xs text-center text-red-400 font-semibold';
+    msgEl.textContent = err.message;
+    msgEl.classList.remove('hidden');
+  }
+}
+
+async function handleLogin(e) {
+  e.preventDefault();
+  const f = e.target;
+  const email = f.email.value.trim();
+  const password = f.password.value;
+  const msgEl = document.getElementById('login-msg');
+  msgEl.className = 'text-xs text-center text-gray-400';
+  msgEl.textContent = 'Signing in...';
+  msgEl.classList.remove('hidden');
+  try {
+    const r = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email, password })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Login failed');
+    msgEl.className = 'text-xs text-center text-emerald-400 font-semibold';
+    msgEl.textContent = 'Welcome back!';
+    await refreshAuth();
+    setTimeout(() => { closeModal('login-modal'); openDashboard(); }, 500);
+  } catch (err) {
+    msgEl.className = 'text-xs text-center text-red-400 font-semibold';
+    msgEl.textContent = err.message;
+    msgEl.classList.remove('hidden');
+  }
+}
+
+async function handleLogout() {
+  try { await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' }); } catch (e) {}
+  currentUser = null;
+  updateNav();
+  location.reload();
+}
+
+async function refreshAuth() {
+  try {
+    const r = await fetch('/api/auth/me', { credentials: 'include' });
+    if (!r.ok) { currentUser = null; }
+    else { const d = await r.json(); currentUser = d.user; }
+  } catch (e) { currentUser = null; }
+  updateNav();
+}
+
+function updateNav() {
+  const loginBtn = document.getElementById('header-login-btn');
+  const dashBtn = document.getElementById('header-dashboard-btn');
+  const logoutBtn = document.getElementById('header-logout-btn');
+  if (currentUser) {
+    loginBtn.style.display = 'none';
+    dashBtn.style.display = 'inline-block';
+    logoutBtn.style.display = 'inline-block';
+  } else {
+    loginBtn.style.display = 'inline-block';
+    dashBtn.style.display = 'none';
+    logoutBtn.style.display = 'none';
+  }
+}
+
+function openTraderPortal() {
+  if (!currentUser) {
+    alert('Please login or create an account to access the Trader Portal');
+    openSignup();
+    return;
+  }
+  openModal('dashboard-preview-modal');
+}
+
+async function openDashboard() {
+  if (!currentUser) { openModal('login-modal'); return; }
+  try {
+    const r = await fetch('/api/me/dashboard', { credentials: 'include' });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Failed to load dashboard');
+    document.getElementById('dash-email').textContent = d.user.email;
+    document.getElementById('dash-email2').textContent = d.user.email;
+    document.getElementById('dash-username').textContent = 'Trader_' + d.user.id;
+    document.getElementById('dash-wallet').textContent = BEP20_ADDRESS;
+
+    const cg = document.getElementById('dash-challenges');
+    cg.innerHTML = '';
+    if (d.challenges.length === 0) {
+      document.getElementById('dash-challenges-empty').style.display = 'block';
+    } else {
+      document.getElementById('dash-challenges-empty').style.display = 'none';
+      d.challenges.forEach(c => {
+        const div = document.createElement('div');
+        div.className = 'bg-black/40 p-4 rounded-xl border border-white/5 flex items-center justify-between';
+        div.innerHTML = '<div><div class="text-sm font-bold text-white">$' + c.account_size.toLocaleString() + ' — ' + c.phase + '</div><div class="text-xs text-gray-500 mt-0.5">' + c.status + '</div></div><span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 font-bold">' + c.status.toUpperCase() + '</span>';
+        cg.appendChild(div);
+      });
+    }
+
+    const og = document.getElementById('dash-orders');
+    og.innerHTML = '';
+    if (d.orders.length === 0) {
+      document.getElementById('dash-orders-empty').style.display = 'block';
+    } else {
+      document.getElementById('dash-orders-empty').style.display = 'none';
+      d.orders.forEach(o => {
+        const div = document.createElement('div');
+        div.className = 'bg-black/40 p-4 rounded-xl border border-white/5';
+        div.innerHTML = '<div class="flex items-center justify-between gap-2"><div class="min-w-0"><div class="text-[10px] text-gray-500 font-mono truncate">' + o.order_ref + '</div><div class="text-sm font-bold text-white mt-1">$' + o.account_size.toLocaleString() + ' — ' + o.crypto_amount + ' USDT</div></div><span class="text-[10px] px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 font-bold whitespace-nowrap">' + o.status.toUpperCase() + '</span></div>';
+        og.appendChild(div);
+      });
+    }
+
+    openModal('dashboard-modal');
+  } catch (e) {
+    alert('Failed to load dashboard: ' + e.message);
+  }
+}
+
+async function startCheckout(planId, price, accountSize) {
+  if (!currentUser) {
+    alert('Please login or create an account first');
+    openSignup();
+    return;
+  }
+
+  try {
+    const dr = await fetch('/api/me/dashboard', { credentials: 'include' });
+    const dd = await dr.json();
+    if (dr.ok && dd.orders) {
+      const existing = dd.orders.find(o => o.plan_id === planId && o.status === 'pending');
+      if (existing) {
+        currentPlan = planId;
+        currentPrice = price;
+        currentAccountSize = accountSize;
+        currentOrderRef = existing.order_ref;
+        document.getElementById('checkout-plan-label').textContent = '$' + accountSize.toLocaleString() + ' Evaluation Account';
+        document.getElementById('checkout-amount').textContent = existing.crypto_amount + ' USDT';
+        document.getElementById('deposit-address-input').value = existing.wallet_address;
+        document.getElementById('checkout-txid').value = existing.txid || '';
+        document.getElementById('checkout-msg').classList.add('hidden');
+        openModal('checkout-modal');
+        return;
+      }
+    }
+  } catch (e) {}
+
+  currentPlan = planId;
+  currentPrice = price;
+  currentAccountSize = accountSize;
+
+  try {
+    const r = await fetch('/api/orders/create', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ planId: planId })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Could not create order');
+    currentOrderRef = d.order.order_ref;
+    document.getElementById('checkout-plan-label').textContent = '$' + accountSize.toLocaleString() + ' Evaluation Account';
+    document.getElementById('checkout-amount').textContent = d.order.crypto_amount + ' USDT';
+    document.getElementById('deposit-address-input').value = d.order.wallet_address;
+    document.getElementById('checkout-txid').value = '';
+    document.getElementById('checkout-msg').classList.add('hidden');
+    openModal('checkout-modal');
+  } catch (e) {
+    alert('Error: ' + e.message);
+  }
+}
+
+function selectCrypto(type) {
+  document.querySelectorAll('.crypto-btn').forEach(b => {
+    b.classList.remove('active', 'border-emerald-500', 'bg-emerald-500/10');
+    b.classList.add('border-white/10', 'card-glass', 'text-gray-300');
+  });
+  event.currentTarget.classList.add('active', 'border-emerald-500', 'bg-emerald-500/10', 'text-white');
+  document.getElementById('crypto-network-label').innerText = type === 'BTC' ? 'Bitcoin Network' : 'BEP20 Network';
+  document.getElementById('deposit-address-input').value = type === 'BTC' ? BTC_ADDRESS : BEP20_ADDRESS;
+}
+
+function copyWallet() {
+  const input = document.getElementById('deposit-address-input');
+  input.select();
+  navigator.clipboard.writeText(input.value);
+  const t = document.getElementById('copy-btn-text');
+  t.innerText = 'Copied!';
+  setTimeout(() => { t.innerText = 'Copy'; }, 2000);
+}
+
+async function submitTxid() {
+  const txid = document.getElementById('checkout-txid').value.trim();
+  const msgEl = document.getElementById('checkout-msg');
+  msgEl.classList.add('hidden');
+  if (!currentOrderRef) {
+    msgEl.className = 'text-xs text-center text-red-400 font-semibold';
+    msgEl.textContent = 'No active order. Please close and try again.';
+    msgEl.classList.remove('hidden');
+    return;
+  }
+  if (txid.length < 10) {
+    msgEl.className = 'text-xs text-center text-red-400 font-semibold';
+    msgEl.textContent = 'Please paste a valid transaction hash (min 10 chars).';
+    msgEl.classList.remove('hidden');
+    return;
+  }
+  try {
+    const r = await fetch('/api/orders/' + currentOrderRef + '/submit-txid', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ txid: txid })
+    });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || 'Failed');
+    msgEl.className = 'text-xs text-center text-emerald-400 font-semibold';
+    msgEl.textContent = d.message || 'TXID submitted. Verification within 30 minutes.';
+    msgEl.classList.remove('hidden');
+    setTimeout(() => { closeModal('checkout-modal'); openDashboard(); }, 2500);
+  } catch (e) {
+    msgEl.className = 'text-xs text-center text-red-400 font-semibold';
+    msgEl.textContent = e.message;
+    msgEl.classList.remove('hidden');
+  }
+}
+
+function switchModel(model) {
+  ['btn-two-phase', 'btn-one-phase', 'btn-instant'].forEach(id => {
+    const b = document.getElementById(id);
+    b.className = 'px-5 py-2.5 rounded-xl font-medium text-sm text-gray-300 hover:text-white transition';
+  });
+  const active = document.getElementById('btn-' + model);
+  active.className = 'px-5 py-2.5 rounded-xl font-bold text-sm bg-emerald-500 text-black transition';
+}
+
+function toggleFaq(el) {
+  const answer = el.querySelector('div:last-child');
+  const icon = el.querySelector('i');
+  answer.classList.toggle('hidden');
+  if (icon) icon.classList.toggle('rotate-180');
+}
+
+function requestSimulatedPayout() {
+  alert('This is a preview. Payouts unlock after you pass Phase 2 and complete KYC.');
+}
+
+refreshAuth();
+</script>
+</body>
+</html>
